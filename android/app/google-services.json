@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "643514366334",
+    "firebase_url": "https://animalcargo-b8508.firebaseio.com",
+    "project_id": "animalcargo-b8508",
+    "storage_bucket": "animalcargo-b8508.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:643514366334:android:31c4eae4372d5808b1db2f",
+        "android_client_info": {
+          "package_name": "com.thiagofernandestelles.animalcargo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "643514366334-4e20f7felf6q7mar6ru6guapl1tcuafj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thiagofernandestelles.animalcargo",
+            "certificate_hash": "3c4d0d459a80ca18180f6e5e88def3df5832fc90"
+          }
+        },
+        {
+          "client_id": "643514366334-nod7g5c5edsuq3pmlnbq774u2jr0plmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNT3_YRGdBSbmxAd-qmigWnQg-JneMbkc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "643514366334-nod7g5c5edsuq3pmlnbq774u2jr0plmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
