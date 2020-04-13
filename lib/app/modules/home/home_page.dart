@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'components/item/item_widget.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,30 +16,13 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            icon: Icon(Icons.highlight_off), onPressed: controller.logoff),
-        title: TextField(
-          controller: controller.textController,
-        ),
-        actions: <Widget>[
-          Observer(builder: (_) {
-            return IconButton(
-              icon: Icon(Icons.add),
-              onPressed: controller.disableAdd ? null : controller.save,
-            );
-          }),
+        title: Text("home"),
+      ),
+      body: Column(
+        children: <Widget>[
+          Text("Páginas:"),
         ],
       ),
-      body: Observer(builder: (_) {
-        return ListView.builder(
-          itemCount: controller.list.length,
-          itemBuilder: (_, index) {
-            return ItemWidget(
-              index: index,
-            );
-          },
-        );
-      }),
     );
   }
 }

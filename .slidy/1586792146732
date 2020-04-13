@@ -1,0 +1,5 @@
+lib/app/modules/sua_carteira/sua_carteira_module.dart
+lib/app/modules/sua_carteira/sua_carteira_page.dart
+test/app/modules/sua_carteira/sua_carteira_page_test.dart
+lib/app/modules/sua_carteira/sua_carteira_controller.dart
+test/app/modules/sua_carteira/sua_carteira_controller_test.dart

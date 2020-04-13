@@ -1,0 +1,5 @@
+lib/app/modules/seus_enderecos/seus_enderecos_module.dart
+lib/app/modules/seus_enderecos/seus_enderecos_page.dart
+test/app/modules/seus_enderecos/seus_enderecos_page_test.dart
+lib/app/modules/seus_enderecos/seus_enderecos_controller.dart
+test/app/modules/seus_enderecos/seus_enderecos_controller_test.dart
