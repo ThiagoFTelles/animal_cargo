@@ -21,6 +21,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       body: Column(
         children: <Widget>[
           Text("Páginas:"),
+          Image.asset(
+            "assets/images/logo.png",
+            width: 250,
+            height: 250,
+            fit: BoxFit.cover,
+          ),
         ],
       ),
     );

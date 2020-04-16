@@ -26,7 +26,8 @@ class AppModule extends MainModule {
   List<Router> get routers => [
         Router('/', child: (_, args) => SplashPage()),
         Router('/login',
-            module: LoginModule(), transition: TransitionType.noTransition),
+            module: LoginModule(), transition: TransitionType.fadeIn),
+        //TODO: Fazer a transition funcionar.
         Router('/home', module: HomeModule()),
       ];
 

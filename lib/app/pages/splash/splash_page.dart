@@ -17,14 +17,17 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    disposer = autorun((_) {
-      //TODO: Colocar um temporizador aqui.
-      final auth = Modular.get<AuthController>();
 
+    disposer = autorun((_) {
+      final auth = Modular.get<AuthController>();
       if (auth.status == AuthStatus.login) {
-        Modular.to.pushReplacementNamed('/home');
+        Future.delayed(Duration(seconds: 2)).then((v) {
+          Modular.to.pushReplacementNamed('/home');
+        });
       } else if (auth.status == AuthStatus.logoff) {
-        Modular.to.pushReplacementNamed('/login');
+        Future.delayed(Duration(seconds: 2)).then((v) {
+          Modular.to.pushReplacementNamed('/login');
+        });
       }
     });
   }
@@ -40,7 +43,12 @@ class _SplashPageState extends State<SplashPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Image.asset(
+          "assets/images/logo.png",
+          width: 250,
+          height: 250,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
