@@ -27,7 +27,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     try {
       final user = await _auth.currentUser();
       if (user != null) {
-        loggedInUser = user;
+        setState(() {
+          loggedInUser = user;
+        });
       }
     } catch (e) {
       print(e);
@@ -36,7 +38,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
-    print(loggedInUser == null ? "build called" : loggedInUser.email);
     return Scaffold(
       appBar: AppBar(
         leading: null,
