@@ -42,13 +42,21 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Image.asset(
-          "assets/images/logo.png",
-          width: 250,
-          height: 250,
-          fit: BoxFit.cover,
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          Flexible(
+            child: Hero(
+              tag: 'logo',
+              child: Container(
+                height: 250.0,
+                width: 250.0,
+                child: Image.asset('assets/images/logo.png'),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
