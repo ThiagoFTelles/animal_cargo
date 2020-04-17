@@ -36,6 +36,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    print(loggedInUser == null ? "build called" : loggedInUser.email);
     return Scaffold(
       appBar: AppBar(
         leading: null,
@@ -44,7 +45,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               icon: Icon(Icons.close),
               onPressed: () {
                 _auth.signOut();
-                Navigator.pop(context);
+                Modular.to.pushReplacementNamed('/login');
               }),
         ],
         title: Text('Home'),
@@ -55,8 +56,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(loggedInUser.email),
-            //TODO: Ver se está puxando o e-mail
+            Text(loggedInUser == null ? "" : loggedInUser.email),
             Flexible(
               child: Hero(
                 tag: 'logo',

@@ -26,11 +26,13 @@ mixin _$LoginController on _LoginBase, Store {
     }, _$loadingAtom, name: '${_$loadingAtom.name}_set');
   }
 
-  final _$loginWithGoogleAsyncAction = AsyncAction('loginWithGoogle');
+  final _$loginWithEmailPasswordAsyncAction =
+      AsyncAction('loginWithEmailPassword');
 
   @override
-  Future<dynamic> loginWithGoogle() {
-    return _$loginWithGoogleAsyncAction.run(() => super.loginWithGoogle());
+  Future<dynamic> loginWithEmailPassword() {
+    return _$loginWithEmailPasswordAsyncAction
+        .run(() => super.loginWithEmailPassword());
   }
 
   @override

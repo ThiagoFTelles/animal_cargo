@@ -12,11 +12,22 @@ abstract class _LoginBase with Store {
   @observable
   bool loading = false;
 
+//  @action
+//  Future loginWithGoogle() async {
+//    try {
+//      loading = true;
+//      await auth.loginWithGoogle();
+//      Modular.to.pushReplacementNamed('/home');
+//    } catch (e) {
+//      loading = false;
+//    }
+//  }
+
   @action
-  Future loginWithGoogle() async {
+  Future loginWithEmailPassword() async {
     try {
       loading = true;
-      await auth.loginWithGoogle();
+      await auth.loginWithEmailPassword();
       Modular.to.pushReplacementNamed('/home');
     } catch (e) {
       loading = false;

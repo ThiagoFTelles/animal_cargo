@@ -53,7 +53,7 @@ class _RegisterPageState
                   email = value;
                 },
                 decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Enter your email',
+                  hintText: 'Digite seu email',
                 ),
               ),
               SizedBox(
@@ -66,7 +66,7 @@ class _RegisterPageState
                   password = value;
                 },
                 decoration: kTextFieldDecoration.copyWith(
-                  hintText: 'Enter your password.',
+                  hintText: 'Digite sua senha',
                 ),
               ),
               SizedBox(
@@ -74,7 +74,7 @@ class _RegisterPageState
               ),
               RoundedButton(
                 colour: Colors.blueAccent,
-                buttonTitle: 'Register',
+                buttonTitle: 'Registrar',
                 onPressed: () async {
                   setState(() {
                     showSpinner = true;

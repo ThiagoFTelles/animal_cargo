@@ -14,18 +14,6 @@ class AuthRepository implements IAuthRepository {
   }
 
   @override
-  Future getFacebookLogin() {
-    // TODO: implement getFacebookLogin
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<String> getToken() {
-    // TODO: implement getToken
-    throw UnimplementedError();
-  }
-
-  @override
   Future<FirebaseUser> getGoogleLogin() async {
     final GoogleSignInAccount googleUser = await _googleSignIn.signIn();
     final GoogleSignInAuthentication googleAuth =
@@ -44,6 +32,18 @@ class AuthRepository implements IAuthRepository {
   @override
   Future<FirebaseUser> getUser() {
     return _auth.currentUser();
+  }
+
+  @override
+  Future getFacebookLogin() {
+    // TODO: implement getFacebookLogin
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<String> getToken() {
+    // TODO: implement getToken
+    throw UnimplementedError();
   }
 
   @override
