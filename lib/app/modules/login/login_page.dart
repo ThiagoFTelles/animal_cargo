@@ -1,4 +1,4 @@
-import 'package:animalcargo/app/shared/constants.dart';
+import 'package:animalcargo/app/utils/constants.dart';
 import 'package:animalcargo/components/rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -91,6 +91,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   } catch (e) {
                     print(e);
                   }
+                },
+              ),
+              RoundedButton(
+                colour: Colors.lightBlueAccent,
+                buttonTitle: 'Registrar',
+                onPressed: () {
+                  Modular.to.pushReplacementNamed('/register');
                 },
               ),
             ],

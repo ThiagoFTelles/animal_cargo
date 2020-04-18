@@ -10,13 +10,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'modules/login/login_module.dart';
+import 'modules/register/register_module.dart';
 import 'shared/auth/repositories/auth_repository_interface.dart';
 
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
         Bind((i) => AppController()),
-        //  Bind((i) => LocalStorageHive()),
         Bind<ILocalStorage>((i) => LocalStorageShared()),
         Bind<IAuthRepository>((i) => AuthRepository()),
         Bind((i) => AuthController()),
@@ -25,9 +25,11 @@ class AppModule extends MainModule {
   @override
   List<Router> get routers => [
         Router('/', child: (_, args) => SplashPage()),
+        //TODO: Fazer a transition funcionar.
         Router('/login',
             module: LoginModule(), transition: TransitionType.fadeIn),
-        //TODO: Fazer a transition funcionar.
+        Router('/register',
+            module: RegisterModule(), transition: TransitionType.fadeIn),
         Router('/home', module: HomeModule()),
       ];
 

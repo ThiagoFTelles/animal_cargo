@@ -31,6 +31,7 @@ abstract class _LoginBase with Store {
       Modular.to.pushReplacementNamed('/home');
     } catch (e) {
       loading = false;
+      print(e);
     }
   }
 }
