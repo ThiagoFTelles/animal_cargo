@@ -1,6 +1,5 @@
 import 'package:animalcargo/app/utils/constants.dart';
 import 'package:animalcargo/components/rounded_button.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -16,8 +15,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
+  final loginController = Modular.get<LoginController>();
   bool showSpinner = false;
-  final _auth = FirebaseAuth.instance;
+
   String email;
   String password;
   @override
@@ -78,11 +78,11 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                   setState(() {
                     showSpinner = true;
                   });
-                  //TODO: Verificar password.
+
                   try {
-                    final newUser = await _auth.signInWithEmailAndPassword(
+                    final user = await loginController.loginWithEmailPassword(
                         email: email, password: password);
-                    if (newUser != null) {
+                    if (user != null) {
                       Modular.to.pushReplacementNamed('/home');
                     }
                     setState(() {

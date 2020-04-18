@@ -30,9 +30,9 @@ mixin _$LoginController on _LoginBase, Store {
       AsyncAction('loginWithEmailPassword');
 
   @override
-  Future<dynamic> loginWithEmailPassword() {
-    return _$loginWithEmailPasswordAsyncAction
-        .run(() => super.loginWithEmailPassword());
+  Future<dynamic> loginWithEmailPassword({dynamic email, dynamic password}) {
+    return _$loginWithEmailPasswordAsyncAction.run(
+        () => super.loginWithEmailPassword(email: email, password: password));
   }
 
   @override

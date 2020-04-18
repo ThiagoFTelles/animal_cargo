@@ -31,8 +31,9 @@ abstract class _AuthControllerBase with Store {
   }
 
   @action
-  Future loginWithEmailPassword() async {
-    user = await _authRepository.getEmailPasswordLogin();
+  Future loginWithEmailPassword({email, password}) async {
+    user = await _authRepository.getEmailPasswordLogin(
+        email: email, password: password);
   }
 
 //  @action

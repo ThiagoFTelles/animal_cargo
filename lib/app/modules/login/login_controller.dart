@@ -24,10 +24,11 @@ abstract class _LoginBase with Store {
 //  }
 
   @action
-  Future loginWithEmailPassword() async {
+  Future loginWithEmailPassword({email, password}) async {
+    //TODO: Verificar password.
     try {
       loading = true;
-      await auth.loginWithEmailPassword();
+      await auth.loginWithEmailPassword(email: email, password: password);
       Modular.to.pushReplacementNamed('/home');
     } catch (e) {
       loading = false;
