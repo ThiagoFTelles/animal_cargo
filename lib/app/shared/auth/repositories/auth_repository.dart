@@ -20,7 +20,6 @@ class AuthRepository implements IAuthRepository {
     final FirebaseUser currentUser = await _auth.currentUser();
     assert(user.uid == currentUser.uid);
 
-    print('signInEmail succeeded: ${user.email}');
     return user;
   }
 
