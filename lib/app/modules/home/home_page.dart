@@ -4,7 +4,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 
 import 'home_controller.dart';
 
-//final _firestore = Firestore.instance;
 FirebaseUser loggedInUser;
 
 class HomePage extends StatefulWidget {
@@ -24,6 +23,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   }
 
   void getCurrentUser() async {
+    //TODO: Jogar isto para o controller
     try {
       final user = await _auth.currentUser();
       if (user != null) {
@@ -46,6 +46,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               icon: Icon(Icons.close),
               onPressed: () {
                 _auth.signOut();
+                //TODO: puxar do controller
                 Modular.to.pushReplacementNamed('/login');
               }),
         ],
@@ -54,20 +55,21 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       ),
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Text(loggedInUser == null ? "" : loggedInUser.email),
             Flexible(
               child: Hero(
                 tag: 'logo',
                 child: Container(
-                  height: 250.0,
-                  width: 250.0,
+                  height: 100.0,
+                  width: 100.0,
                   child: Image.asset('assets/images/logo.png'),
                 ),
               ),
             ),
+            Text(loggedInUser == null ? "" : loggedInUser.email),
+            Text('MAPA AQUI'),
           ],
         ),
       ),

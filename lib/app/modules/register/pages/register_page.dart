@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
-import 'register_controller.dart';
+import '../register_controller.dart';
 
 class RegisterPage extends StatefulWidget {
   final String title;

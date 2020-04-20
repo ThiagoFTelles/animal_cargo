@@ -1,0 +1,4 @@
+lib/app/modules/register/pages/register_payment_card/register_payment_card_page.dart
+test/app/modules/register/pages/register_payment_card/register_payment_card_page_test.dart
+lib/app/modules/register/pages/register_payment_card/register_payment_card_controller.dart
+test/app/modules/register/pages/register_payment_card/register_payment_card_controller_test.dart

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cadastrar_endereco_controller.dart';
+part of 'register_place_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,8 @@ part of 'cadastrar_endereco_controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$CadastrarEnderecoController on _CadastrarEnderecoControllerBase, Store {
-  final _$valueAtom = Atom(name: '_CadastrarEnderecoControllerBase.value');
+mixin _$RegisterPlaceController on _RegisterPlaceControllerBase, Store {
+  final _$valueAtom = Atom(name: '_RegisterPlaceControllerBase.value');
 
   @override
   int get value {
@@ -26,18 +26,17 @@ mixin _$CadastrarEnderecoController on _CadastrarEnderecoControllerBase, Store {
     }, _$valueAtom, name: '${_$valueAtom.name}_set');
   }
 
-  final _$_CadastrarEnderecoControllerBaseActionController =
-      ActionController(name: '_CadastrarEnderecoControllerBase');
+  final _$_RegisterPlaceControllerBaseActionController =
+      ActionController(name: '_RegisterPlaceControllerBase');
 
   @override
   void increment() {
     final _$actionInfo =
-        _$_CadastrarEnderecoControllerBaseActionController.startAction();
+        _$_RegisterPlaceControllerBaseActionController.startAction();
     try {
       return super.increment();
     } finally {
-      _$_CadastrarEnderecoControllerBaseActionController
-          .endAction(_$actionInfo);
+      _$_RegisterPlaceControllerBaseActionController.endAction(_$actionInfo);
     }
   }
 

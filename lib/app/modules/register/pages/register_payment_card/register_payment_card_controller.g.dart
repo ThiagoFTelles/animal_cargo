@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'cadastrar_cartao_controller.dart';
+part of 'register_payment_card_controller.dart';
 
 // **************************************************************************
 // StoreGenerator
@@ -8,8 +8,9 @@ part of 'cadastrar_cartao_controller.dart';
 
 // ignore_for_file: non_constant_identifier_names, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
-mixin _$CadastrarCartaoController on _CadastrarCartaoControllerBase, Store {
-  final _$valueAtom = Atom(name: '_CadastrarCartaoControllerBase.value');
+mixin _$RegisterPaymentCardController
+    on _RegisterPaymentCardControllerBase, Store {
+  final _$valueAtom = Atom(name: '_RegisterPaymentCardControllerBase.value');
 
   @override
   int get value {
@@ -26,17 +27,18 @@ mixin _$CadastrarCartaoController on _CadastrarCartaoControllerBase, Store {
     }, _$valueAtom, name: '${_$valueAtom.name}_set');
   }
 
-  final _$_CadastrarCartaoControllerBaseActionController =
-      ActionController(name: '_CadastrarCartaoControllerBase');
+  final _$_RegisterPaymentCardControllerBaseActionController =
+      ActionController(name: '_RegisterPaymentCardControllerBase');
 
   @override
   void increment() {
     final _$actionInfo =
-        _$_CadastrarCartaoControllerBaseActionController.startAction();
+        _$_RegisterPaymentCardControllerBaseActionController.startAction();
     try {
       return super.increment();
     } finally {
-      _$_CadastrarCartaoControllerBaseActionController.endAction(_$actionInfo);
+      _$_RegisterPaymentCardControllerBaseActionController
+          .endAction(_$actionInfo);
     }
   }
 
