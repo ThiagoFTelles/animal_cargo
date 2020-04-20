@@ -1,0 +1,5 @@
+lib/app/modules/google_map/google_map_module.dart
+lib/app/modules/google_map/google_map_page.dart
+test/app/modules/google_map/google_map_page_test.dart
+lib/app/modules/google_map/google_map_controller.dart
+test/app/modules/google_map/google_map_controller_test.dart

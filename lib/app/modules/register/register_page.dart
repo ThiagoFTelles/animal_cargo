@@ -1,5 +1,5 @@
+import 'package:animalcargo/app/shared/components/rounded_button.dart';
 import 'package:animalcargo/app/utils/constants.dart';
-import 'package:animalcargo/components/rounded_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';

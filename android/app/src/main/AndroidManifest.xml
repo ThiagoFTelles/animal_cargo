@@ -10,7 +10,7 @@
         android:label="animalcargo"
         android:icon="@mipmap/ic_launcher">
 
-        <meta-data adroid:name="com.google.android.geo.API_KEY" android:value="AIzaSyBnM6TshFFH40jnAj9pluTrYrT0dkbTeXM" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBnM6TshFFH40jnAj9pluTrYrT0dkbTeXM" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

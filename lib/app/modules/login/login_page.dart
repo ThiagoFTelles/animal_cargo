@@ -1,5 +1,5 @@
+import 'package:animalcargo/app/shared/components/rounded_button.dart';
 import 'package:animalcargo/app/utils/constants.dart';
-import 'package:animalcargo/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
@@ -25,6 +25,7 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
     return Scaffold(
       backgroundColor: kGrey,
       body: ModalProgressHUD(
+        //TODO: Flutter Slidy e Modular #2 2'15'' = colocar observer aqui e tirar o showSpinner daqui
         inAsyncCall: showSpinner,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),

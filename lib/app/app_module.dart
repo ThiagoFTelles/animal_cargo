@@ -1,7 +1,7 @@
 import 'package:animalcargo/app/app_controller.dart';
 import 'package:animalcargo/app/app_widget.dart';
 import 'package:animalcargo/app/modules/home/home_module.dart';
-import 'package:animalcargo/app/pages/splash/splash_page.dart';
+import 'package:animalcargo/app/modules/splash/splash_module.dart';
 import 'package:animalcargo/app/shared/auth/auth_controller.dart';
 import 'package:animalcargo/app/shared/auth/repositories/auth_repository.dart';
 import 'package:animalcargo/app/shared/repositories/localstorage/local_storage_interface.dart';
@@ -24,8 +24,9 @@ class AppModule extends MainModule {
 
   @override
   List<Router> get routers => [
-        Router('/', child: (_, args) => SplashPage()),
         //TODO: Fazer a transition funcionar.
+        Router(Modular.initialRoute,
+            module: SplashModule(), transition: TransitionType.fadeIn),
         Router('/login',
             module: LoginModule(), transition: TransitionType.fadeIn),
         Router('/register',
