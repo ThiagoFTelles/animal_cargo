@@ -1,6 +1,8 @@
 import 'package:animalcargo/app/modules/home/components/map/map_controller.dart';
 import 'package:animalcargo/app/modules/home/components/map/map_widget.dart';
+import 'package:animalcargo/app/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -70,11 +72,15 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             left: 0,
             child: SafeArea(
               child: FlatButton(
+                onPressed: () {
+                  _auth.signOut();
+                  //TODO: puxar do controller
+                  Modular.to.pushReplacementNamed('/login');
+                },
                 child: Icon(
                   Icons.menu,
                   size: 45,
                 ),
-                onPressed: mapController.onSubmitted,
               ),
             ),
           ),
@@ -82,96 +88,127 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             bottom: 0,
             left: 0,
             width: MediaQuery.of(context).size.width,
-            height: 250,
-            child: Container(
-              color: Colors.white,
-              child: Column(
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Text("Olá ${loggedInUser.email}!",
-                        style: TextStyle(
-                          color: Colors.teal.shade900,
-                          fontSize: 20.0,
-                        )),
-                  ),
-                  SizedBox(
-                    height: 2,
-                    child: Container(
-                      color: Colors.black38,
+            height: 450,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                FlatButton(
+                  padding: EdgeInsets.all(20.0),
+                  onPressed: mapController.onSubmitted,
+                  child: CircleAvatar(
+                    child: Icon(
+                      Icons.my_location,
+                      color: kGreen,
                     ),
+                    backgroundColor: Colors.white,
                   ),
-                  Padding(
-                    //TODO: Colocar isto dentro de um widget
-                    padding: EdgeInsets.all(20.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.location_on,
-                          color: Colors.black54,
-                          size: 40,
+                ),
+                Container(
+                  color: Colors.white,
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Text("Olá ${loggedInUser.email}!",
+                            style: TextStyle(
+                              color: Colors.teal.shade900,
+                              fontSize: 20.0,
+                            )),
+                      ),
+                      SizedBox(
+                        height: 2,
+                        child: Container(
+                          color: Colors.black38,
                         ),
-                        SizedBox(
-                          width: 10.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              border: InputBorder.none,
+                              hintText: 'Para onde?',
+                              hintStyle: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20,
+                              ),
+                              filled: true,
+                              fillColor: Colors.black12),
                         ),
-                        Column(
+                      ),
+                      Padding(
+                        //TODO: Colocar isto dentro de um widget
+                        padding: EdgeInsets.all(20.0),
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text('Haras Bavária',
-                                style: TextStyle(
-                                  color: Colors.teal.shade900,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            Text('Av. João da Silva, 12345, Vitória - ES',
-                                //TODO: O que fazer quando o texto estourar o widget?
-                                textScaleFactor: 0.9,
-                                style: TextStyle(
-                                  color: Colors.teal.shade900,
-                                  fontSize: 18.0,
-                                ))
+                            Icon(
+                              Icons.location_on,
+                              color: Colors.black54,
+                              size: 40,
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text('Haras Bavária',
+                                    style: TextStyle(
+                                      color: Colors.teal.shade900,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                Text('Av. João da Silva, 12345, Vitória - ES',
+                                    //TODO: O que fazer quando o texto estourar o widget?
+                                    textScaleFactor: 0.9,
+                                    style: TextStyle(
+                                      color: Colors.teal.shade900,
+                                      fontSize: 18.0,
+                                    ))
+                              ],
+                            ),
                           ],
                         ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Icon(
-                          Icons.location_on,
-                          color: Colors.black54,
-                          size: 40,
-                        ),
-                        SizedBox(
-                          width: 10.0,
-                        ),
-                        Column(
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(20.0),
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            Text('Haras Dubai',
-                                style: TextStyle(
-                                  color: Colors.teal.shade900,
-                                  fontSize: 18.0,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                            Text('Av. Leitão da Silva, 777, Salvador - BA',
-                                //TODO: O que fazer quando o texto estourar o widget?
-                                textScaleFactor: 0.9,
-                                style: TextStyle(
-                                  color: Colors.teal.shade900,
-                                  fontSize: 18.0,
-                                ))
+                            Icon(
+                              Icons.location_on,
+                              color: Colors.black54,
+                              size: 40,
+                            ),
+                            SizedBox(
+                              width: 10.0,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text('Haras Dubai',
+                                    style: TextStyle(
+                                      color: Colors.teal.shade900,
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                                Text('Av. Leitão da Silva, 777, Salvador - BA',
+                                    //TODO: O que fazer quando o texto estourar o widget?
+                                    textScaleFactor: 0.9,
+                                    style: TextStyle(
+                                      color: Colors.teal.shade900,
+                                      fontSize: 18.0,
+                                    ))
+                              ],
+                            ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
 //          Flexible(
