@@ -38,3 +38,6 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+const double kMinZoom = 5.0;
+const double kMaxZoom = 19.0;

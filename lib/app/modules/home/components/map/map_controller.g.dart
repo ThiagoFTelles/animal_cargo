@@ -94,6 +94,23 @@ mixin _$MapController on _MapControllerBase, Store {
     }, _$zoomAtom, name: '${_$zoomAtom.name}_set');
   }
 
+  final _$mapTypeAtom = Atom(name: '_MapControllerBase.mapType');
+
+  @override
+  MapType get mapType {
+    _$mapTypeAtom.context.enforceReadPolicy(_$mapTypeAtom);
+    _$mapTypeAtom.reportObserved();
+    return super.mapType;
+  }
+
+  @override
+  set mapType(MapType value) {
+    _$mapTypeAtom.context.conditionallyRunInAction(() {
+      super.mapType = value;
+      _$mapTypeAtom.reportChanged();
+    }, _$mapTypeAtom, name: '${_$mapTypeAtom.name}_set');
+  }
+
   final _$markersAtom = Atom(name: '_MapControllerBase.markers');
 
   @override
@@ -155,19 +172,9 @@ mixin _$MapController on _MapControllerBase, Store {
   }
 
   @override
-  dynamic onSubmitted2() {
-    final _$actionInfo = _$_MapControllerBaseActionController.startAction();
-    try {
-      return super.onSubmitted2();
-    } finally {
-      _$_MapControllerBaseActionController.endAction(_$actionInfo);
-    }
-  }
-
-  @override
   String toString() {
     final string =
-        'searchText: ${searchText.toString()},mapController: ${mapController.toString()},lat: ${lat.toString()},long: ${long.toString()},zoom: ${zoom.toString()},markers: ${markers.toString()}';
+        'searchText: ${searchText.toString()},mapController: ${mapController.toString()},lat: ${lat.toString()},long: ${long.toString()},zoom: ${zoom.toString()},mapType: ${mapType.toString()},markers: ${markers.toString()}';
     return '{$string}';
   }
 }

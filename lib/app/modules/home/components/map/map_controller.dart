@@ -23,7 +23,9 @@ abstract class _MapControllerBase with Store {
   @observable
   double long = -122.677433;
   @observable
-  double zoom = 11.0;
+  double zoom = 15.0;
+  @observable
+  MapType mapType = MapType.normal;
 
   @action
   setLatLong(double newLat, double newLong) {
@@ -37,8 +39,8 @@ abstract class _MapControllerBase with Store {
   @action
   onSubmitted() {
 //TODO: pegar a lat e long pesquisando o texto no google
-    double lat = -22.7101448;
-    double long = -48.0747667;
+    double lat = -20.310918732673137;
+    double long = -40.350530818104744;
 
     LatLng position = LatLng(lat, long);
 
@@ -49,28 +51,8 @@ abstract class _MapControllerBase with Store {
       markerId: MarkerId("1234567"),
       position: position,
       infoWindow: InfoWindow(
-        title: "Casa do Balta",
-        snippet: "Piracicaba/SP",
-      ),
-    );
-    markers.add(marker);
-  }
-
-  @action
-  onSubmitted2() {
-    //TODO: pegar a lat e long pesquisando o texto no google
-    double lat = -22.7101448;
-    double long = -48.0747667;
-
-    LatLng position = LatLng(lat, long);
-
-    final Marker marker = Marker(
-      //TODO: Gerar id único
-      markerId: MarkerId("1234567"),
-      position: position,
-      infoWindow: InfoWindow(
-        title: "Casa do Balta",
-        snippet: "Piracicaba/SP",
+        title: "Haras Esperança",
+        snippet: "Vitória/ES",
       ),
     );
     markers.add(marker);
