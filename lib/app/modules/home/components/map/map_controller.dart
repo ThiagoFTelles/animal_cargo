@@ -51,7 +51,7 @@ abstract class _MapControllerBase with Store {
       markerId: MarkerId("1234567"),
       position: position,
       infoWindow: InfoWindow(
-        title: "Haras Esperança",
+        title: "Haras Bavária",
         snippet: "Vitória/ES",
       ),
     );
