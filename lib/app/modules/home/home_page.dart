@@ -1,5 +1,6 @@
 import 'package:animalcargo/app/modules/home/components/map/map_controller.dart';
 import 'package:animalcargo/app/modules/home/components/map/map_widget.dart';
+import 'package:animalcargo/app/modules/home/components/nav_drawer/nav_drawer_widget.dart';
 import 'package:animalcargo/app/utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -45,6 +46,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
 //      appBar: AppBar(
 //        leading: null,
 //        actions: <Widget>[
@@ -72,11 +74,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             left: 0,
             child: SafeArea(
               child: FlatButton(
-                onPressed: () {
-                  _auth.signOut();
-                  //TODO: puxar do controller
-                  Modular.to.pushReplacementNamed('/login');
-                },
+                onPressed: () {},
                 child: Icon(
                   Icons.menu,
                   size: 45,
