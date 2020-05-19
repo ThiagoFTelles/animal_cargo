@@ -1,0 +1,4 @@
+lib/app/modules/home/components/select_mode/select_mode_widget.dart
+test/app/modules/home/components/select_mode/select_mode_widget_test.dart
+lib/app/modules/home/components/select_mode/select_mode_controller.dart
+test/app/modules/home/components/select_mode/select_mode_controller_test.dart

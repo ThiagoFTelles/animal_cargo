@@ -7,12 +7,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'components/saved_place/saved_place_widget.dart';
 import 'home_controller.dart';
 
 FirebaseUser loggedInUser;
 
 class HomePage extends StatefulWidget {
   final String title;
+
   const HomePage({Key key, this.title = "Home"}) : super(key: key);
 
   @override
@@ -23,6 +25,16 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   final _auth = FirebaseAuth.instance;
   final mapController = Modular.get<MapController>();
 
+  List<SavedPlaceWidget> placesList = [
+    SavedPlaceWidget(
+      name: "Haras Bavária",
+      address: "Av. João da Silva, 12345, Vitória - ES",
+    ),
+    SavedPlaceWidget(
+      name: "Haras Dubai",
+      address: "Av. João da Silva, 12345, Vitória - ES",
+    ),
+  ];
   @override
   void initState() {
     super.initState();
@@ -47,20 +59,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: NavDrawer(),
-//      appBar: AppBar(
-//        leading: null,
-//        actions: <Widget>[
-//          IconButton(
-//              icon: Icon(Icons.close),
-//              onPressed: () {
-//                _auth.signOut();
-//                //TODO: puxar do controller
-//                Modular.to.pushReplacementNamed('/login');
-//              }),
-//        ],
-//        title: Text(loggedInUser.email),
-//        backgroundColor: Colors.lightBlueAccent,
-//      ),
       body: Stack(
         fit: StackFit.expand,
         children: <Widget>[
@@ -86,7 +84,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             bottom: 0,
             left: 0,
             width: MediaQuery.of(context).size.width,
-            height: 450,
+            height: 400,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.end,
@@ -107,25 +105,15 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   child: Column(
                     children: <Widget>[
                       Padding(
-                        padding: EdgeInsets.all(20.0),
-                        child: Text("Olá ${loggedInUser.email}!",
-                            style: TextStyle(
-                              color: Colors.teal.shade900,
-                              fontSize: 20.0,
-                            )),
-                      ),
-                      SizedBox(
-                        height: 2,
-                        child: Container(
-                          color: Colors.black38,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(20.0),
+                        padding: const EdgeInsets.only(
+                            top: 20, left: 20, right: 20, bottom: 1),
                         child: TextField(
+                          onTap: () {
+                            Modular.to.pushNamed("/home/route");
+                          },
                           decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: 'Para onde?',
+                              hintText: 'Local de embarque',
                               hintStyle: TextStyle(
                                 color: Colors.black,
                                 fontSize: 20,
@@ -134,74 +122,17 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                               fillColor: Colors.black12),
                         ),
                       ),
-                      Padding(
-                        //TODO: Colocar isto dentro de um widget
-                        padding: EdgeInsets.all(20.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Icon(
-                              Icons.location_on,
-                              color: Colors.black54,
-                              size: 40,
-                            ),
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text('Haras Bavária',
-                                    style: TextStyle(
-                                      color: Colors.teal.shade900,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                    )),
-                                Text('Av. João da Silva, 12345, Vitória - ES',
-                                    //TODO: O que fazer quando o texto estourar o widget?
-                                    textScaleFactor: 0.9,
-                                    style: TextStyle(
-                                      color: Colors.teal.shade900,
-                                      fontSize: 18.0,
-                                    ))
-                              ],
-                            ),
-                          ],
-                        ),
+                      SavedPlaceWidget(
+                        name: "Haras Dubai",
+                        address: "Av. João da Silva, 12345, Vitória - ES",
                       ),
-                      Padding(
-                        padding: EdgeInsets.all(20.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                            Icon(
-                              Icons.location_on,
-                              color: Colors.black54,
-                              size: 40,
-                            ),
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text('Haras Dubai',
-                                    style: TextStyle(
-                                      color: Colors.teal.shade900,
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
-                                    )),
-                                Text('Av. Leitão da Silva, 777, Salvador - BA',
-                                    //TODO: O que fazer quando o texto estourar o widget?
-                                    textScaleFactor: 0.9,
-                                    style: TextStyle(
-                                      color: Colors.teal.shade900,
-                                      fontSize: 18.0,
-                                    ))
-                              ],
-                            ),
-                          ],
-                        ),
+                      SavedPlaceWidget(
+                        name: "Haras Bavária",
+                        address: "Av. João da Silva, 12345, Vitória - ES",
+                      ),
+                      SavedPlaceWidget(
+                        name: "Fazenda Paraíso",
+                        address: "Av. João da Silva, 12345, Vitória - ES",
                       ),
                     ],
                   ),
@@ -209,16 +140,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ],
             ),
           ),
-//          Flexible(
-//            child: Hero(
-//              tag: 'logo',
-//              child: Container(
-//                height: 100.0,
-//                width: 100.0,
-//                child: Image.asset('assets/images/logo.png'),
-//              ),
-//            ),
-//          ),
         ],
       ),
     );

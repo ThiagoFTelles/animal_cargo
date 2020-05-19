@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 const kGrey = Color(0xF2FFFFFF);
-const kGreen = Color(0xFF37878C);
+//const kGreen = Color(0xFF37878C);
+const kGreen = Colors.teal;
 const kRed = Color(0xFF72191C);
 
 const kSendButtonTextStyle = TextStyle(
