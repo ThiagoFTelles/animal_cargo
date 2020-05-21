@@ -18,7 +18,7 @@ class SelectModeWidget extends StatelessWidget {
               "Escolha uma modalidade",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: Colors.teal.shade900,
+                color: kTextColor,
                 fontSize: 35.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -34,7 +34,7 @@ class SelectModeWidget extends StatelessWidget {
                     Text(
                       "Haras Espírito Santo ",
                       style: TextStyle(
-                        color: Colors.teal.shade900,
+                        color: kTextColor,
                         fontSize: 15.0,
                       ),
                     ),
@@ -45,7 +45,7 @@ class SelectModeWidget extends StatelessWidget {
                     Text(
                       " Haras Bavária",
                       style: TextStyle(
-                        color: Colors.teal.shade900,
+                        color: kTextColor,
                         fontSize: 15.0,
                       ),
                     ),
@@ -54,7 +54,7 @@ class SelectModeWidget extends StatelessWidget {
                 Text(
                   "387 km",
                   style: TextStyle(
-                    color: Colors.teal.shade900,
+                    color: kTextColor,
                     fontSize: 15.0,
                   ),
                 ),

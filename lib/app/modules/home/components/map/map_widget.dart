@@ -10,25 +10,29 @@ class MapWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(builder: (_) {
-      return GoogleMap(
-        compassEnabled: false,
-        zoomControlsEnabled: false,
-        minMaxZoomPreference: MinMaxZoomPreference(kMinZoom, kMaxZoom),
-        mapType: mapController.mapType,
-        initialCameraPosition: CameraPosition(
-          target: LatLng(mapController.lat, mapController.long),
-          zoom: mapController.zoom,
-        ),
-        markers: mapController.markers,
-        onMapCreated: mapController.onMapCreated,
-        onCameraMove: (data) {
-          print(data);
-        },
-        onTap: (position) {
-          print(position);
-        },
-      );
-    });
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: MediaQuery.of(context).size.height,
+      child: Observer(builder: (_) {
+        return GoogleMap(
+          compassEnabled: false,
+          zoomControlsEnabled: false,
+          minMaxZoomPreference: MinMaxZoomPreference(kMinZoom, kMaxZoom),
+          mapType: mapController.mapType,
+          initialCameraPosition: CameraPosition(
+            target: LatLng(mapController.lat, mapController.long),
+            zoom: mapController.zoom,
+          ),
+          markers: mapController.markers,
+          onMapCreated: mapController.onMapCreated,
+          onCameraMove: (data) {
+            print(data);
+          },
+          onTap: (position) {
+            print(position);
+          },
+        );
+      }),
+    );
   }
 }

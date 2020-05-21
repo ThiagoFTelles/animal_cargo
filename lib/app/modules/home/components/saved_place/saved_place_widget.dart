@@ -1,22 +1,29 @@
+import 'package:animalcargo/app/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class SavedPlaceWidget extends StatelessWidget {
   final String name;
   final String address;
+  final LatLng latLng;
 
-  const SavedPlaceWidget({Key key, @required this.name, @required this.address})
+  const SavedPlaceWidget(
+      {Key key,
+      @required this.name,
+      @required this.address,
+      @required this.latLng})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(20.0),
+      padding: EdgeInsets.only(top: 20, bottom: 20),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Icon(
             Icons.location_on,
-            color: Colors.black54,
+            color: kIconColor,
             size: 40,
           ),
           SizedBox(
@@ -27,7 +34,7 @@ class SavedPlaceWidget extends StatelessWidget {
             children: <Widget>[
               Text(name,
                   style: TextStyle(
-                    color: Colors.teal.shade900,
+                    color: kTextColor,
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   )),
@@ -35,7 +42,7 @@ class SavedPlaceWidget extends StatelessWidget {
                   //TODO: caracteres estão estourando quando o nome da rua é muito grande
                   textScaleFactor: 0.9,
                   style: TextStyle(
-                    color: Colors.teal.shade900,
+                    color: kTextColor,
                     fontSize: 18.0,
                   ))
             ],

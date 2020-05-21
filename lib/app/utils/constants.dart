@@ -4,6 +4,8 @@ const kGrey = Color(0xF2FFFFFF);
 //const kGreen = Color(0xFF37878C);
 const kGreen = Colors.teal;
 const kRed = Color(0xFF72191C);
+final kTextColor = Colors.teal.shade900;
+const kIconColor = Colors.black54;
 
 const kSendButtonTextStyle = TextStyle(
   color: Colors.lightBlueAccent,
