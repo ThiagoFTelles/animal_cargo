@@ -22,6 +22,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   final _auth = FirebaseAuth.instance;
   final mapController = Modular.get<MapController>();
 
@@ -35,6 +37,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
       address: "Av. João da Silva, 12345, Vitória - ES",
     ),
   ];
+
   @override
   void initState() {
     super.initState();
@@ -58,6 +61,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       drawer: NavDrawer(),
       body: Stack(
         fit: StackFit.expand,
@@ -68,15 +72,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             child: MapWidget(),
           ),
           Positioned(
-            top: 0,
+            top: 10,
             left: 0,
             child: SafeArea(
               child: FlatButton(
-                onPressed: () {},
+                splashColor: Colors.black26,
+                onPressed: () => _scaffoldKey.currentState.openDrawer(),
                 child: Icon(
                   Icons.menu,
-                  size: 45,
+                  size: 28,
                 ),
+                shape: new CircleBorder(),
+                color: Colors.white,
+                padding: EdgeInsets.all(10),
               ),
             ),
           ),
