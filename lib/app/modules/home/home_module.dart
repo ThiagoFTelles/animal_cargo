@@ -26,6 +26,7 @@ class HomeModule extends ChildModule {
   @override
   List<Router> get routers => [
         Router(Modular.initialRoute, child: (_, args) => HomePage()),
+//        Router(Modular.initialRoute, child: (_, args) => MapPage()),
         Router("/register_place",
             child: (_, args) => RegisterPlacePage(),
             transition: TransitionType.rightToLeft),

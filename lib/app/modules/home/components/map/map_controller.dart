@@ -1,4 +1,6 @@
+import 'package:animalcargo/app/modules/home/components/map/utils.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 import 'package:mobx/mobx.dart';
 
 part 'map_controller.g.dart';
@@ -16,6 +18,7 @@ abstract class _MapControllerBase with Store {
   @action
   void onMapCreated(GoogleMapController googleMapController) {
     mapController = googleMapController;
+    mapController.setMapStyle(Utils.mapStyles);
   }
 
   @observable
@@ -56,5 +59,28 @@ abstract class _MapControllerBase with Store {
       ),
     );
     markers.add(marker);
+    //TODO: Não está atualizando o state automaticamente na hora que adiciona o novo marker
   }
+
+  ////////////////////// GET LOCATION /////////////////////
+  @observable
+  static LatLng latLngLocation;
+  @observable
+  LocationData currentLocation;
+  @action
+  getLocation() async {
+    var location = new Location();
+    location.onLocationChanged().listen((currentLocation) {
+      latLngLocation =
+          LatLng(currentLocation.latitude, currentLocation.longitude);
+//    loading = false;
+    });
+  }
+
+//  Call this getLocation() in your initState method
+//  Now the latLngLocation we are get now set it on the initialCameraPosition which is built-in method of GoogleMap
+//  initialCameraPosition: CameraPosition(
+//  target: latLngLocation,
+//  zoom: 14.4746,
+//  ),
 }

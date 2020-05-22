@@ -145,6 +145,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         child: Icon(
                           Icons.menu,
                           size: 28,
+                          color: Colors.black,
                         ),
                       ),
                       shape: new CircleBorder(),
@@ -179,7 +180,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                         child: Icon(
                           Icons.my_location,
                           size: 28,
-                          color: kIconColor,
+                          color: Colors.blueAccent,
                         ),
                       ),
                       shape: new CircleBorder(),
@@ -191,111 +192,108 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: DraggableScrollableSheet(
-              initialChildSize: 0.45,
-              minChildSize: 0.4,
-              maxChildSize: 0.8,
-              builder: (context, controller) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
+          DraggableScrollableSheet(
+            initialChildSize: 0.45,
+            minChildSize: 0.4,
+            maxChildSize: 0.8,
+            builder: (context, controller) {
+              return Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
-                  child: _registerPlace
-                      ? Column(
-                          children: <Widget>[
-                            Icon(
-                              Icons.drag_handle,
-                              size: 25,
-                              color: Colors.black12,
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5),
-                              child: Text(
-                                "Novo Local",
-                                style: TextStyle(
-                                  color: Colors.grey.shade800,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                ),
+                child: _registerPlace
+                    ? Column(
+                        children: <Widget>[
+                          Icon(
+                            Icons.drag_handle,
+                            size: 25,
+                            color: Colors.black12,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Text(
+                              "Novo Local",
+                              style: TextStyle(
+                                color: Colors.grey.shade800,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                            FlatButton(
-                              onPressed: _toggleRegisterPlace,
-                              child: Icon(Icons.arrow_back),
+                          ),
+                          FlatButton(
+                            onPressed: _toggleRegisterPlace,
+                            child: Icon(Icons.arrow_back),
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              padding: EdgeInsets.all(0),
+                              controller: controller,
+                              itemCount: 1,
+                              itemBuilder: (_, i) {
+                                return Column(
+                                  children: <Widget>[
+                                    TextField(),
+                                    TextField(),
+                                  ],
+                                );
+                              },
                             ),
-                            Expanded(
-                              child: ListView.builder(
-                                padding: EdgeInsets.all(0),
-                                controller: controller,
-                                itemCount: 1,
-                                itemBuilder: (_, i) {
-                                  return Column(
-                                    children: <Widget>[
-                                      TextField(),
-                                      TextField(),
-                                    ],
-                                  );
-                                },
+                          ),
+                        ],
+                      )
+                    : Column(
+                        children: <Widget>[
+                          Icon(
+                            Icons.drag_handle,
+                            size: 25,
+                            color: Colors.black12,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 5),
+                            child: Text(
+                              _step == "destino" ? "DESTINO" : "ORIGEM",
+                              style: TextStyle(
+                                color: kRed,
+                                fontSize: 30,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ],
-                        )
-                      : Column(
-                          children: <Widget>[
-                            Icon(
-                              Icons.drag_handle,
-                              size: 25,
-                              color: Colors.black12,
+                          ),
+                          FlatButton(
+                            onPressed: _toggleRegisterPlace,
+                            child: RegisterPlaceWidget(),
+                          ),
+                          Expanded(
+                            child: ListView.builder(
+                              padding: EdgeInsets.all(0),
+                              controller: controller,
+                              itemCount: places.length,
+                              itemBuilder: (_, i) {
+                                return Column(
+                                  children: <Widget>[
+                                    FlatButton(
+                                      onPressed: () {
+                                        _setPlace(places[i].latLng);
+                                      },
+                                      child: places[i],
+                                    ),
+                                    Divider(
+                                      height: 10,
+                                      color: Colors.black26,
+                                    ),
+                                  ],
+                                );
+                              },
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5),
-                              child: Text(
-                                _step == "destino" ? "DESTINO" : "ORIGEM",
-                                style: TextStyle(
-                                  color: Colors.grey.shade800,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            FlatButton(
-                              onPressed: _toggleRegisterPlace,
-                              child: RegisterPlaceWidget(),
-                            ),
-                            Expanded(
-                              child: ListView.builder(
-                                padding: EdgeInsets.all(0),
-                                controller: controller,
-                                itemCount: places.length,
-                                itemBuilder: (_, i) {
-                                  return Column(
-                                    children: <Widget>[
-                                      FlatButton(
-                                        onPressed: () {
-                                          _setPlace(places[i].latLng);
-                                        },
-                                        child: places[i],
-                                      ),
-                                      Divider(
-                                        height: 10,
-                                        color: Colors.black26,
-                                      ),
-                                    ],
-                                  );
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                );
-              },
-            ),
+                          ),
+                        ],
+                      ),
+              );
+            },
           ),
         ],
       ),
